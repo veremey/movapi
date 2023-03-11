@@ -48,7 +48,7 @@ const Navigation = () => {
           </Hidden >
           
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to='settings'>
+            <Link to='/'>
               Movies recommendation
             </Link>
           </Typography>
