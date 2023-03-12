@@ -5,6 +5,7 @@ import {
   Drawer,
   Hidden,
   IconButton,
+  Link,
   List,
   ListItem,
   ListItemButton,
@@ -14,8 +15,8 @@ import {
   Typography,
 } from '@mui/material';
 
-import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link as RouterLink } from 'react-router-dom';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { useState } from 'react';
 
@@ -29,7 +30,10 @@ function Navigation() {
     >
       <List>
         <ListItem disablePadding>
-          <Link to="settings">
+          <Link
+            component={RouterLink}
+            to="/settings"
+          >
             <ListItemButton>
               <ListItemIcon>
                 <SettingsIcon />
@@ -64,10 +68,20 @@ function Navigation() {
             component="div"
             sx={{ flexGrow: 1 }}
           >
-            <Link to="/">Movies recommendation</Link>
+            <Link
+              component={RouterLink}
+              to="/"
+              sx={{ color: '#fff' }}
+            >
+              Movies recommendation
+            </Link>
           </Typography>
           <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
-            <Link to="settings">
+            <Link
+              component={RouterLink}
+              to="/settings"
+              sx={{ color: '#fff' }}
+            >
               <Button sx={{ my: 2, color: 'white' }}>Settings</Button>
             </Link>
           </Box>

@@ -7,7 +7,7 @@ module.exports = {
   bracketSpacing: true,
   bracketSameLine: false,
   proseWrap: 'never', //
-  singleAttributePerLine: true,
+  // singleAttributePerLine: true,
   semi: true,
   trailingComma: 'all',
   arrowParens: 'always',
