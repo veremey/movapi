@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import {Home, Settings} from './pages'
+import { Container, CssBaseline } from '@mui/material';
+import { Home, Recommend, Settings } from './pages'
 
-import { CssBaseline } from '@mui/material';
 import { Navigation } from './components'
-import {useState} from 'react';
 
 function App() {
 
@@ -11,10 +10,14 @@ function App() {
     <BrowserRouter> 
       <CssBaseline />
       <Navigation />
+      <Container maxWidth="xl">
+        
       <Routes >
         <Route index element={<Home />} />
         <Route path='settings' element={<Settings />} />
+        <Route path='recommend' element={<Recommend />} />
       </Routes>
+      </Container>
     </BrowserRouter>
   );
 }
