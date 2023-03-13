@@ -1,5 +1,4 @@
-import Navigation from './navigation';
+import MovieCard from './MovieCard';
+import Navigation from './Navigation';
 
-export {
-  Navigation
-}
+export { Navigation, MovieCard };
