@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  parser: '@typescript-eslint/parser',
+  // parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -13,7 +13,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
-    '@typescript-eslint',
+    // '@typescript-eslint',
     'jest',
     'react',
     'jsx-a11y',
@@ -22,7 +22,7 @@ module.exports = {
   extends: [
     'react-app',
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
+    // 'plugin:@typescript-eslint/recommended',
     'prettier',
     'plugin:jest/recommended',
     'plugin:react/recommended',
@@ -43,15 +43,15 @@ module.exports = {
     'react/prop-types': 'off',
     'react/destructuring-assignment': 'error',
     'react/no-unescaped-entities': 0,
-    '@typescript-eslint/no-unused-vars': 'off',
-    '@typescript-eslint/no-use-before-define': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/ban-ts-comment': [
-      'error',
-      {
-        'ts-ignore': 'allow-with-description',
-      },
-    ],
+    // '@typescript-eslint/no-unused-vars': 'off',
+    // '@typescript-eslint/no-use-before-define': 'off',
+    // '@typescript-eslint/no-explicit-any': 'off',
+    // '@typescript-eslint/ban-ts-comment': [
+    //   'error',
+    //   {
+    //     'ts-ignore': 'allow-with-description',
+    //   },
+    // ],
     'jsx-a11y/no-noninteractive-tabindex': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',

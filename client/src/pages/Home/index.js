@@ -11,7 +11,7 @@ const Home = () => {
     color: theme.palette.text.secondary,
     height: 'calc(100vh - 120px)',
     position: 'sticky',
-    top: '16px',
+    top: theme.spacing(2),
   }));
 
   return (
@@ -32,8 +32,7 @@ const Home = () => {
                 <Grid item xs={12} sm={6} md={4} lg={3}>
                   <MovieCard />
                 </Grid>
-              </Grid>
-              <Grid container spacing={2}>
+
                 <Grid item xs={12} sm={6} md={4} lg={3}>
                   <MovieCard />
                 </Grid>
