@@ -9,7 +9,7 @@
     "prettier",
     "next/core-web-vitals"
   ],
-  // "parser": "@typescript-eslint/parser",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -19,7 +19,7 @@
   },
   "plugins": [
     "react",
-    // "@typescript-eslint",
+    "@typescript-eslint",
     "prettier"
   ],
   "rules": {
