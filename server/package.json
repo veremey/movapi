@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "apollo-server": "^2.26.1",
+    "graphql": "^14.7.0"
+  },
+  "scripts": {
+    "server" : "node index.js"
+  }
+}
