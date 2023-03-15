@@ -1,4 +1,5 @@
 import { MovieCard } from '../components';
+import { movies } from './stub';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,11 +17,5 @@ const Template = (args) => <MovieCard {...args} />;
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  primary: true,
-  label: 'Button',
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
+  movie: movies[0],
 };

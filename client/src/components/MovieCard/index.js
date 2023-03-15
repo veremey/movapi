@@ -9,18 +9,11 @@ const CardInfo = styled(CardContent)(({ theme }) => ({
   },
 }));
 
-const MovieCard = () => {
-  const onAddClick = (movie) => alert('movie is added');
-
+const MovieCard = ({ movie, onCardSelect }) => {
   return (
     <Card sx={{ maxWidth: 200, position: 'relative' }}>
-      <CardMenu onAddClick={onAddClick} />
-      <CardMedia
-        component="img"
-        height="194"
-        image="https://www.themoviedb.org/t/p/w440_and_h660_face/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg"
-        alt="Paella dish"
-      />
+      <CardMenu onAddClick={onCardSelect} />
+      <CardMedia component="img" height="194" image={movie.image} alt={movie.title} />
       <CardInfo>
         <Typography variant="h6" gutterBottom component="div">
           Sonic the Hedgehog 2
