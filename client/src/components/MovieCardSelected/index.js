@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardMedia, MenuItem, Typography } from '@mui/material/Box';
+import { Box, Card, CardContent, CardMedia, MenuItem, Typography } from '@mui/material';
 
 import CardMenu from '../CardMenu';
 
