@@ -1,5 +1,5 @@
-import MovieCard from './MovieCard';
-import MovieCardSelected from './MovieCardSelected';
-import Navigation from './Navigation';
+import MovieCard from './MovieCard/MovieCard';
+import MovieCardSelected from './MovieCardSelected/MovieCardSelected';
+import Navigation from './Navigation/Navigation';
 
 export { Navigation, MovieCard, MovieCardSelected };

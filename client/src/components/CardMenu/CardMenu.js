@@ -1,9 +1,9 @@
-import { IconButton, Menu, MenuItem } from '@mui/material';
-
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from 'react';
 
-const CardMenu = ({ onAddClick }) => {
+const CardMenu = ({ children }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -12,6 +12,7 @@ const CardMenu = ({ onAddClick }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <>
       <IconButton
@@ -40,7 +41,7 @@ const CardMenu = ({ onAddClick }) => {
           },
         }}
       >
-        <MenuItem onClick={onAddClick}>Add</MenuItem>
+        {children}
       </Menu>
     </>
   );
