@@ -18,10 +18,10 @@ const MovieCard = ({ movie, onCardSelect }) => {
       <CardMedia component="img" height="250" image={movie.image} alt={movie.title} />
       <CardInfo>
         <Typography variant="h6" gutterBottom component="div">
-          Sonic the Hedgehog 2
+          {movie.title}
         </Typography>
         <Typography mb={0} variant="subtitle1" gutterBottom component="div">
-          Apr 08, 2022
+          {movie.releaseDate}
         </Typography>
       </CardInfo>
     </Card>

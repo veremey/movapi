@@ -1,7 +1,9 @@
 import { Box, Grid, Paper } from '@mui/material';
 
+import { MOVIES_QUERY } from './queries';
 import { MovieCard } from '../../components';
 import { styled } from '@mui/material/styles';
+import { useQuery } from '@apollo/client';
 
 const Home = () => {
   const SelectedSection = styled(Paper)(({ theme }) => ({
@@ -13,6 +15,13 @@ const Home = () => {
     position: 'sticky',
     top: theme.spacing(2),
   }));
+
+  const { loading, error, data } = useQuery(MOVIES_QUERY);
+
+  if (error) {
+    console.log(error);
+    return 'Error';
+  }
 
   return (
     <Box
@@ -28,15 +37,17 @@ const Home = () => {
         <Grid item xs={12} md={8}>
           <Paper>
             <Box sx={{ flexGrow: 1, padding: 1 }}>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
-                  <MovieCard />
+              {loading && <div>Loading ...</div>}
+              {data && (
+                <Grid container spacing={2}>
+                  {data.movies.results.map((movie) => (
+                    <Grid key={movie.id} item xs={12} sm={6} md={4} lg={3}>
+                      <MovieCard movie={movie} />
+                    </Grid>
+                  ))}
+                  ;
                 </Grid>
-
-                <Grid item xs={12} sm={6} md={4} lg={3}>
-                  <MovieCard />
-                </Grid>
-              </Grid>
+              )}
             </Box>
           </Paper>
         </Grid>
