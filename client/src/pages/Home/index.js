@@ -1,11 +1,19 @@
-import { Box, Grid, Paper } from '@mui/material';
+import { Box, Grid, Pagination, Paper } from '@mui/material';
 
 import { MOVIES_QUERY } from './queries';
 import { MovieCard } from '../../components';
 import { styled } from '@mui/material/styles';
 import { useQuery } from '@apollo/client';
+import { useState } from 'react';
 
 const Home = () => {
+  const [page, setPage] = useState(1);
+  const paginationHandler = (event, page) => {
+    setPage(page);
+  };
+
+  const MAX_PAGES = 500;
+
   const SelectedSection = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
     ...theme.typography.body2,
@@ -16,7 +24,7 @@ const Home = () => {
     top: theme.spacing(2),
   }));
 
-  const { loading, error, data } = useQuery(MOVIES_QUERY);
+  const { loading, error, data } = useQuery(MOVIES_QUERY, { variables: { page } });
 
   if (error) {
     console.log(error);
@@ -45,9 +53,15 @@ const Home = () => {
                       <MovieCard movie={movie} />
                     </Grid>
                   ))}
-                  ;
                 </Grid>
               )}
+            </Box>
+            <Box mt={2} pb={2} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Pagination
+                count={data?.movies?.totalPages > MAX_PAGES ? MAX_PAGES : data?.movies?.totalPages}
+                page={page}
+                onChange={paginationHandler}
+              />
             </Box>
           </Paper>
         </Grid>

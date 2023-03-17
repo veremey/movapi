@@ -2,7 +2,7 @@ const { getPopular } = require('../api/Movies')
 
 async function movies(parent, args) {
   try {
-    const data = await getPopular()
+    const data = await getPopular(args.page)
 
     return data
   } catch (error) {

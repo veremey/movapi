@@ -1,7 +1,7 @@
 module.exports = {
   plugins: ['./node_modules/prettier-plugin-multiline-arrays'],
-  printWidth: 120,
-  max_line_length: 120,
+  printWidth: 100,
+  max_line_length: 100,
   tabWidth: 2,
   singleQuote: true,
   bracketSpacing: true,
