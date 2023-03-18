@@ -1,13 +1,17 @@
 import { Box, Grid, Pagination, Paper } from '@mui/material';
+import { MovieCard, MovieCardSelected } from '../../components';
 
 import { MOVIES_QUERY } from './queries';
-import { MovieCard } from '../../components';
 import { styled } from '@mui/material/styles';
+import { useMovies } from '../../hooks/useMovie';
 import { useQuery } from '@apollo/client';
 import { useState } from 'react';
 
 const Home = () => {
   const [page, setPage] = useState(1);
+  const { loading, error, data } = useQuery(MOVIES_QUERY, { variables: { page } });
+  const { selectedMovies, selectMovie, deletedMovie } = useMovies();
+
   const paginationHandler = (event, page) => {
     setPage(page);
   };
@@ -23,8 +27,6 @@ const Home = () => {
     position: 'sticky',
     top: theme.spacing(2),
   }));
-
-  const { loading, error, data } = useQuery(MOVIES_QUERY, { variables: { page } });
 
   if (error) {
     console.log(error);
@@ -50,7 +52,7 @@ const Home = () => {
                 <Grid container spacing={2}>
                   {data.movies.results.map((movie) => (
                     <Grid key={movie.id} item xs={12} sm={6} md={4} lg={3}>
-                      <MovieCard movie={movie} />
+                      <MovieCard movie={movie} onCardSelect={() => selectMovie(movie)} />
                     </Grid>
                   ))}
                 </Grid>
@@ -66,7 +68,11 @@ const Home = () => {
           </Paper>
         </Grid>
         <Grid item xs={12} md={4}>
-          <SelectedSection>Selected movies</SelectedSection>
+          <SelectedSection>
+            {selectedMovies.map((movie) => {
+              return <MovieCardSelected key={movie.id} onCardDelete={deletedMovie} movie={movie} />;
+            })}
+          </SelectedSection>
         </Grid>
       </Grid>
     </Box>
