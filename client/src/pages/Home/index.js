@@ -2,7 +2,7 @@ import { Box, Grid, Pagination, Paper } from '@mui/material';
 import { MovieCard, SelectedMoviesSection } from '../../components';
 
 import { MOVIES_QUERY } from './queries';
-import { useMovies } from '../../hooks/useMovie';
+import { useMovies } from '../../hooks/useMovies/useMovie';
 import { useQuery } from '@apollo/client';
 import { useState } from 'react';
 
@@ -11,7 +11,7 @@ const Home = () => {
   const { loading, error, data } = useQuery(MOVIES_QUERY, {
     variables: { page },
   });
-  const { selectedMovies, selectMovie, deletedMovie } = useMovies();
+  const { selectedMovies, selectMovie, deleteMovie } = useMovies();
 
   const paginationHandler = (event, page) => {
     setPage(page);
@@ -89,7 +89,7 @@ const Home = () => {
         <Grid item xs={12} md={4}>
           <SelectedMoviesSection
             selectedMovies={selectedMovies}
-            deleteMovie={deletedMovie}
+            deleteMovie={deleteMovie}
           />
         </Grid>
       </Grid>
