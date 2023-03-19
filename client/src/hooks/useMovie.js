@@ -8,9 +8,12 @@ export const useMovies = () => {
   const selectMovie = useCallback(
     (movie) => {
       const isNewMovie = !selectedMovies.find(({ id }) => id === movie.id);
+      const moveiLength = selectedMovies.length;
 
-      if (isNewMovie && movie.length < MAX_SELECTED_MOVIES) {
+      if (isNewMovie && moveiLength < MAX_SELECTED_MOVIES) {
         setSelectedMovies([movie, ...selectedMovies]);
+      } else {
+        alert("Sorry, you can't add more than 20 movies");
       }
     },
     [selectedMovies],

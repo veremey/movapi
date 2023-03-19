@@ -11,7 +11,7 @@ import CardMenu from '../CardMenu/CardMenu';
 
 const MovieCardSelected = ({ movie, onCardDelete }) => {
   return (
-    <Card sx={{ display: 'flex', marginBottom: 2 }}>
+    <Card sx={{ display: 'flex', marginBottom: 2, minHeight: '164px' }}>
       <CardMedia
         component="img"
         sx={{ width: 100 }}
