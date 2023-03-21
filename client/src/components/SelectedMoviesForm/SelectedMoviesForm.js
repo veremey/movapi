@@ -1,7 +1,8 @@
-import { Divider, IconButton, InputBase, Paper } from '@mui/material';
+import { Divider, InputBase, Paper } from '@mui/material';
 import { Field, Form } from 'react-final-form';
 
 import CheckIcon from '@mui/icons-material/Check';
+import IconButton from '@mui/material/IconButton';
 
 const SelectedMoviesForm = ({ onSubmit }) => (
   <Form
@@ -34,6 +35,15 @@ const SelectedMoviesForm = ({ onSubmit }) => (
               </>
             )}
           />
+          <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+          <IconButton
+            type="submit"
+            color="primary"
+            sx={{ p: '10px' }}
+            aria-label="directions"
+          >
+            <CheckIcon />
+          </IconButton>
         </Paper>
       </form>
     )}
