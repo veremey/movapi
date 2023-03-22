@@ -14,6 +14,7 @@ import { CONFRIM_TIMEOUT } from '../../const';
 import CloseIcon from '@mui/icons-material/Close';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { FormattedMessage } from 'react-intl';
 import { SocialShare } from '../../components';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
@@ -94,7 +95,7 @@ const ConfirmModal = ({ open, url, title, onClose }) => {
         </Paper>
 
         <Typography id="modal-modal-title" variant="h6" component="h3">
-          Share with friends
+          <FormattedMessage id="share_with_friends" />
         </Typography>
 
         <SocialShare url={url} title={title} />
@@ -113,7 +114,7 @@ const ConfirmModal = ({ open, url, title, onClose }) => {
             }
             sx={{ mt: 2 }}
           >
-            Copied!
+            <FormattedMessage id="copied" />
           </Alert>
         ) : null}
       </Box>
