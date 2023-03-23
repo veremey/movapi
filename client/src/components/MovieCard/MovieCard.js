@@ -1,14 +1,6 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  MenuItem,
-  Typography,
-} from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
-import CardMenu from '../CardMenu/CardMenu';
 import { styled } from '@mui/material/styles';
 
 const CardInfo = styled(CardContent)(({ theme }) => ({
@@ -35,12 +27,9 @@ const PlusIcon = styled(Box)(({ theme }) => ({
   },
 }));
 
-const MovieCard = ({ movie, onCardSelect }) => {
+const MovieCard = ({ movie, onCardSelect, isPreviewMode }) => {
   return (
     <Card sx={{ maxWidth: 250, position: 'relative' }}>
-      <CardMenu>
-        <MenuItem onClick={onCardSelect}>Select</MenuItem>
-      </CardMenu>
       <Box sx={{ position: 'relative' }}>
         <CardMedia
           component="img"
@@ -48,9 +37,11 @@ const MovieCard = ({ movie, onCardSelect }) => {
           image={movie.image}
           alt={movie.title}
         />
-        <PlusIcon onClick={() => onCardSelect(movie)}>
-          <AddBoxOutlinedIcon sx={{ fontSize: 80 }} />
-        </PlusIcon>
+        {isPreviewMode && (
+          <PlusIcon onClick={() => onCardSelect(movie)}>
+            <AddBoxOutlinedIcon sx={{ fontSize: 80 }} />
+          </PlusIcon>
+        )}
       </Box>
       <CardInfo>
         <Typography variant="h6" gutterBottom component="div">

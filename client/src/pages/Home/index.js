@@ -19,23 +19,6 @@ const Home = () => {
 
   const MAX_PAGES = 500;
 
-  // const SelectedSection = styled(Paper)(({ theme }) => ({
-  //   backgroundColor: '#fff',
-  //   ...theme.typography.body2,
-  //   padding: theme.spacing(1),
-  //   color: theme.palette.text.secondary,
-  //   height: 'calc(100vh - 120px)',
-  //   position: 'sticky',
-  //   top: theme.spacing(2),
-  //   display: 'flex',
-  //   flexDirection: 'column',
-  // }));
-
-  // const MoviesList = styled(Stack)(({ theme }) => ({
-  //   overflow: 'scroll',
-  //   height: '100%',
-  // }));
-
   if (error) {
     console.log(error);
     return 'Error';
@@ -63,6 +46,7 @@ const Home = () => {
                       <MovieCard
                         movie={movie}
                         onCardSelect={() => selectMovie(movie)}
+                        isPreviewMode={true}
                       />
                     </Grid>
                   ))}

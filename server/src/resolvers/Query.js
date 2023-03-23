@@ -12,7 +12,7 @@ async function movies(parent, args) {
   }
 }
 
-async function movieByIds(parent, {ids}) {
+async function moviesByIds(parent, {ids}) {
   
   try {
     const requests = ids.map((id) => getMoviesByIds(id));
@@ -29,6 +29,6 @@ async function movieByIds(parent, {ids}) {
 
 module.exports = {
     movies,
-    movieByIds
+    moviesByIds
 
 }
