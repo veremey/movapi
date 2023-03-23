@@ -1,8 +1,7 @@
-import { Divider, InputBase, Paper } from '@mui/material';
+import { Divider, IconButton, InputBase, Paper } from '@mui/material';
 import { Field, Form } from 'react-final-form';
 
 import CheckIcon from '@mui/icons-material/Check';
-import IconButton from '@mui/material/IconButton';
 
 const SelectedMoviesForm = ({ onSubmit }) => (
   <Form
@@ -18,10 +17,7 @@ const SelectedMoviesForm = ({ onSubmit }) => (
     }}
     render={({ handleSubmit }) => (
       <form onSubmit={handleSubmit}>
-        <Paper
-          component="form"
-          sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}
-        >
+        <Paper sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}>
           <Field
             name="listName"
             render={({ input, meta }) => (

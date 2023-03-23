@@ -1,4 +1,3 @@
-import React from 'react';
 import { SelectedMoviesForm } from '../components';
 
 export default {
