@@ -1,5 +1,3 @@
-// import { useEffect, useState } from 'react';
-
 import { MOVIES_BY_IDS_QUERY } from './queries';
 import { Typography, Grid } from '@mui/material';
 import { useQuery } from '@apollo/client';
