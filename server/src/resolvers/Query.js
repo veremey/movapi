@@ -1,9 +1,9 @@
 const { getPopular, getMoviesByIds} = require('../api/Movies')
 const { Movie } = require('../entities/Movie')
 
-async function movies(parent, args) {
+async function movies(parent, args, {locale}) {
   try {
-    const data = await getPopular(args.page)
+    const data = await getPopular(args.page, locale)
 
     return data
   } catch (error) {
