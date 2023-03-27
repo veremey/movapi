@@ -1,6 +1,6 @@
 import { Divider, IconButton, InputBase, Paper } from '@mui/material';
 import { Field, Form } from 'react-final-form';
-
+import { FormattedMessage } from 'react-intl';
 import CheckIcon from '@mui/icons-material/Check';
 
 const SelectedMoviesForm = ({ onSubmit }) => (
@@ -21,14 +21,14 @@ const SelectedMoviesForm = ({ onSubmit }) => (
           <Field
             name="listName"
             render={({ input, meta }) => (
-              <>
+              <FormattedMessage id="put_the_list_name">
                 <InputBase
                   sx={{ ml: 1, flex: 1 }}
                   placeholder="Put the list name"
                   inputProps={{ 'aria-label': 'put list name' }}
                   {...input}
                 />
-              </>
+              </FormattedMessage>
             )}
           />
           <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
