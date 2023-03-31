@@ -1,17 +1,18 @@
 import {
   ApolloClient,
-  ApolloProvider,
-  InMemoryCache,
-  HttpLink,
   ApolloLink,
+  ApolloProvider,
+  HttpLink,
+  InMemoryCache,
   from,
 } from '@apollo/client';
 import { Box, Container, CssBaseline } from '@mui/material';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home, Recommend, Settings } from './pages';
+import { Route, Routes } from 'react-router-dom';
 
-import { Navigation } from './components';
 import { AppContext } from './context/appContext';
+import I18nProvider from './context/i18n';
+import { Navigation } from './components';
 import { useContext } from 'react';
 
 function App() {
@@ -40,8 +41,8 @@ function App() {
   });
 
   return (
-    <ApolloProvider client={client}>
-      <BrowserRouter>
+    <I18nProvider locale={state.locale}>
+      <ApolloProvider client={client}>
         <CssBaseline />
         <Navigation />
         <Box
@@ -57,8 +58,8 @@ function App() {
             </Routes>
           </Container>
         </Box>
-      </BrowserRouter>
-    </ApolloProvider>
+      </ApolloProvider>
+    </I18nProvider>
   );
 }
 

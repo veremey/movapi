@@ -14,14 +14,15 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
+import { useCallback, useContext, useState } from 'react';
 
+import { AppContext } from '../../context/appContext';
+import { FormattedMessage } from 'react-intl';
 import { LOCALES } from '../../const';
-
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { useState, useContext, useCallback } from 'react';
-import { AppContext } from '../../context/appContext';
+import translate from '../../utils/translate';
 
 function Navigation() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -44,7 +45,7 @@ function Navigation() {
               <ListItemIcon>
                 <SettingsIcon />
               </ListItemIcon>
-              <ListItemText primary="Settings" />
+              <ListItemText primary={translate('navigation.settings')} />
             </ListItemButton>
           </Link>
         </ListItem>
@@ -71,11 +72,10 @@ function Navigation() {
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link component={RouterLink} to="/" sx={{ color: '#fff' }}>
-              Movies recommendation
+              <FormattedMessage id="navigation.home" />
             </Link>
           </Typography>
           <Box>
-            {state.locale}
             <Button
               disabled={state.locale === LOCALES.ENGLISH}
               sx={{ my: 2, color: 'white' }}
@@ -94,7 +94,9 @@ function Navigation() {
           </Box>
           <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
             <Link component={RouterLink} to="/settings" sx={{ color: '#fff' }}>
-              <Button sx={{ my: 2, color: 'white' }}>Settings</Button>
+              <Button sx={{ my: 2, color: 'white' }}>
+                <FormattedMessage id="navigation.settings" />
+              </Button>
             </Link>
           </Box>
         </Toolbar>

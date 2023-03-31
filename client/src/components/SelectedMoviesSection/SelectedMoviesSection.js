@@ -3,19 +3,18 @@ import {
   MovieCardSelected,
   SelectedMoviesForm,
 } from '../../components';
-
-// import * as selectedLang from '../../messages';
-import { Lang } from '../../messages';
+import { useContext, useState } from 'react';
 
 import { AppContext } from '../../context/appContext';
-
 import Box from '@mui/material/Box';
+import { FormattedMessage } from 'react-intl';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import noMoviesImageSrc from '../../assets/images/no_movies.png';
 import { styled } from '@mui/material/styles';
-import { useState, useContext } from 'react';
+
+// import { Lang } from '../../messages';
 
 const SelectedMovies = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -74,7 +73,8 @@ const SelectedMoviesSection = ({ selectedMovies, deleteMovie }) => {
             src={noMoviesImageSrc}
           />
           <Typography variant="h5" mt={2}>
-            {Lang[state.locale].no_selected_movies}
+            <FormattedMessage id="no_selected_movies" />
+            {/* {Lang[state.locale].no_selected_movies} */}
           </Typography>
         </NoMovies>
       </SelectedMovies>
