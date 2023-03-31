@@ -18,7 +18,7 @@ import { useContext } from 'react';
 function App() {
   const { state } = useContext(AppContext);
 
-  const httpLink = new HttpLink({ uri: 'http://localhost:4000/' });
+  const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql' });
   const localeMiddleware = new ApolloLink((operation, forward) => {
     // eslint-disable-next-line no-prototype-builtins
     const customHeaders = operation.getContext().hasOwnProperty('headers')
